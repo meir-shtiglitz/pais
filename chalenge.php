@@ -5,6 +5,7 @@ require 'PHPMailer/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
 include 'db_con.php';
+include 'ignore.php';
 
 $email = $_POST['email'];
 $money = $_POST['money'];
@@ -23,10 +24,10 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465;
 $mail->SMTPSecure = 'ssl';
 $mail->IsHTML(true);
-$mail->Username = 'misternet101@gmail.com';
-$mail->Password = '227204153';
+$mail->Username = $mail_username;
+$mail->Password = $mail_password;
 
-$mail->SetFrom('misternet101@gmail.com');
+$mail->SetFrom($mail_username);
 $mail->AddAddress( $email );
 
 $mail->Subject = ' חברך '.$name.' רוצה לאתגר אותך:';
